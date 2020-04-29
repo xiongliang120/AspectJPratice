@@ -1,6 +1,6 @@
 package com.xiongliang;
 
-public aspect OneAop {
+public aspect CallAop {
     /**
      * 切入无返回，无参方法
      */
@@ -10,14 +10,14 @@ public aspect OneAop {
      * args(name,age), 可以将切入点的标识符绑定到方法参数上
      */
     pointcut callParamPoincut(String name,int age):
-            call(void com.xiongliang.Test.getPeople(String,int)) &&
+            call(void com.xiongliang.Test.getPeople(java.lang.String,int)) &&
             args(name,age);
 
     /**
      * target(object),将getPeople()调用对象绑定到object变量上
      */
     pointcut callParamPointcutTarget(Test object):
-            call(void com.xiongliang.Test.getPeople(String,int)) &&
+            call(void com.xiongliang.Test.getPeople(java.lang.String,int)) &&
                     target(object);
 
 
@@ -32,30 +32,6 @@ public aspect OneAop {
     before(Test object): callParamPointcutTarget(object){
         System.out.println("切入有参函数,并获取调用该方法的对象 object="+object);
         object.test();
-    }
-
-
-    /******************** 执行方法切入***********************/
-
-    /**
-     * execute, 切入方法执行中的连接点
-     */
-    pointcut executePointcut():
-            execution(void com.xiongliang.Test.getPeople(String,int));
-
-
-    pointcut executePointcutTarget(Test object):
-            execution(void com.xiongliang.Test.getPeople(String,int)) &&
-            target(object);
-
-
-
-    before(): executePointcut(){
-        System.out.println("切入有参函数,在方法执行前调用");
-    }
-
-    before(Test object): executePointcutTarget(object){
-        System.out.println("切入有参函数,在方法执行前调用 object="+object);
     }
 
 }
