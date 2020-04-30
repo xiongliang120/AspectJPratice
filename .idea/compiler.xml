@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="AjcSettings">
-    <option name="ajcPath" value="$USER_HOME$/Desktop/AspectJ/aspectj-1.9.5/files/lib/aspectjtools.jar" />
+    <option name="ajcPath" value="F:/intellijidea/aspectjtools.jar" />
   </component>
   <component name="CompilerConfiguration">
     <option name="DEFAULT_COMPILER" value="ajc" />
