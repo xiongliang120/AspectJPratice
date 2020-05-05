@@ -10,6 +10,7 @@ public class Test {
         test.popCatch();
     }
 
+    @Deprecated
     public void test(){
        System.out.println("com/xiongliang"+name+"age="+Constrant.age);
        name = "what";
